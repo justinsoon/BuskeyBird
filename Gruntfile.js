@@ -1,74 +1,74 @@
+/*global module:false*/
 module.exports = function(grunt) {
+    var sourceFiles = [
+        'js/game.js',
+        'js/resources.js',
+        'js/entities/entities.js',
+        'js/entities/HUD.js',
+        'js/screens/title.js',
+        'js/screens/play.js',
+        'js/screens/gameover.js',
+    ];
 
     // Project configuration.
     grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
         uglify: {
-            main: {
-                src: 'js/<%= pkg.name %>.js',
-                dest: 'js/<%= pkg.name %>.min.js'
-            }
-        },
-        less: {
-            expanded: {
-                options: {
-                    paths: ["css"]
-                },
-                files: {
-                    "css/<%= pkg.name %>.css": "less/<%= pkg.name %>.less"
-                }
+            options: {
+                report: 'min',
+                preserveComments: 'some'
             },
-            minified: {
-                options: {
-                    paths: ["css"],
-                    cleancss: true
-                },
-                files: {
-                    "css/<%= pkg.name %>.min.css": "less/<%= pkg.name %>.less"
-                }
-            }
-        },
-        banner: '/*!\n' +
-            ' * <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
-            ' * Copyright 2013-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
-            ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n' +
-            ' */\n',
-        usebanner: {
             dist: {
-                options: {
-                    position: 'top',
-                    banner: '<%= banner %>'
-                },
                 files: {
-                    src: ['css/<%= pkg.name %>.css', 'css/<%= pkg.name %>.min.css', 'js/<%= pkg.name %>.min.js']
+                    'build/clumsy-min.js': [
+                        sourceFiles
+                    ]
                 }
             }
         },
-        watch: {
-            scripts: {
-                files: ['js/<%= pkg.name %>.js'],
-                tasks: ['uglify'],
-                options: {
-                    spawn: false,
-                },
+
+        jshint: {
+            options: {
+                jshintrc: ".jshintrc"
             },
-            less: {
-                files: ['less/*.less'],
-                tasks: ['less'],
-                options: {
-                    spawn: false,
+
+            beforeConcat: {
+                files: {
+                    src: sourceFiles
                 }
             },
+
+            afterConcat: {
+                files: {
+                    src: [ sourceFiles ]
+                }
+            }
         },
+
+        connect : {
+            root : {
+                options : {
+                    port : 8001,
+                    keepalive : true,
+                    host: '*'
+                }
+            }
+        },
+
+        clean: {
+            dist: [
+                'build/clumsy-min.js'
+            ],
+        },
+
     });
 
-    // Load the plugins.
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-banner');
-    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks("grunt-contrib-connect");
 
-    // Default task(s).
-    grunt.registerTask('default', ['uglify', 'less', 'usebanner']);
 
+    // Default task.
+    grunt.registerTask('default', ['uglify']);
+    grunt.registerTask('lint', ['jshint:beforeConcat', 'concat', 'jshint:afterConcat']);
 };
