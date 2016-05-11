@@ -1,7 +1,7 @@
 var BirdEntity = me.Entity.extend({
     init: function(x, y) {
         var settings = {};
-        settings.image = me.loader.getImage('clumsy');
+        settings.image = me.loader.getImage('buskey');
         settings.width = 85;
         settings.height = 60;
         settings.framewidth = 85;

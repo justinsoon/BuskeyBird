@@ -1,8 +1,8 @@
 {
-  "name": "Clumsy Bird",
+  "name": "Buskey Bird",
   "description": "MelonJS Flapppy Bird Clone",
-  "repository": "https://github.com/ellisonleao/clumsy-bird",
-  "logo": "https://raw.githubusercontent.com/ellisonleao/clumsy-bird/gh-pages/data/img/touch-icon-iphone.png",
+  "repository": "https://github.com/justinsoon/justinsoon.github.io",
+  "logo": "https://raw.githubusercontent.com/justinsoon/justinsoon.github.io/master/data/img/touch-icon-iphone.png",
   "keywords": ["grunt", "melonjs", "games"]
 }
 

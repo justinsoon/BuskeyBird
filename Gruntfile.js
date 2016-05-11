@@ -19,7 +19,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'build/clumsy-min.js': [
+                    'build/buskey-min.js': [
                         sourceFiles
                     ]
                 }
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
 
         clean: {
             dist: [
-                'build/clumsy-min.js'
+                'build/buskey-min.js'
             ],
         },
 
