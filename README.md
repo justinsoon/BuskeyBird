@@ -3,6 +3,6 @@ Buskey Bird
 
 A MelonJS made "Flappy Bird" clone.
 
-![](http://i.imgur.com/Slbvt65.png)
+![](http://puu.sh/oOMLl/b329ce227c.png)
 
 Play online at http://justinsoon.github.io/
