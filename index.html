@@ -11,14 +11,14 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Buskey Bird">
     <meta charset="UTF-8" />
-    <meta name="description" content="Buskey Bird - A Flappy Bird clone using MelonJS"/>
-    <meta name="keywords" content="flappybird, flappy, bird, game, html5, melonjs,clone"/>
+    <meta name="description" content="Buskey Bird - A Flappy Bird clone Final Project"/>
+    <meta name="keywords" content="buskeybird, buskey, bird, game, html5, melonjs,clone"/>
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="RDZI9SqVaffd48uHfZMv67-YdvviOMe2HuULEYqVgd4" />
     <meta property="og:image" content="https://raw.githubusercontent.com/justinsoon/justinsoon.github.io/master/data/img/bg.png" />
-    <meta property="og:title" content="Buskey Bird - A Flappy Bird clone using MelonJS"/>
+    <meta property="og:title" content="Buskey Bird - A Flappy Bird clone By Justin Soon"/>
     <meta property="og:url" content="http://justinsoon.github.io/"/>
-    <meta property="og:site_name" content="Buskey Bird - MelonJS"/>
+    <meta property="og:site_name" content="Buskey Bird By Justin Soon"/>
 
     <!-- Twitter Card -->
     <meta name="twitter:hashtag" content="buskeybird" />
@@ -26,7 +26,7 @@
     <meta name="twitter:site" content="@justinxsoon" />
     <meta name="twitter:creator" content="@justinxsoon" />
     <meta name="twitter:title" content="Buskey Bird" />
-    <meta name="twitter:description" content="A Flappy Bird melonJS clone " />
+    <meta name="twitter:description" content="Comp Math Final Project" />
 
 
     <!-- Humans -->
@@ -37,33 +37,19 @@
   </head>
 
   <body>
-    <div id="fb-root"></div>
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '213642148840283',
-          status     : true,
-          xfbml      : true
-        });
-      };
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/pt_BR/all.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-       addToHomescreen();
-    </script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <!-- Canvas placeholder -->
     <div id="screen"></div>
     <!-- Sharing section -->
     <div id="share">
-        <div
-            class="fb-share-button"
-            data-href="http://justinsoon.github.io/"
-            data-type="button_count">
-        </div>
+<div class="fb-share-button" data-href="http://justinsoon.github.io/" data-layout="button_count" data-mobile-iframe="true"></div>
         <a
             href="https://twitter.com/justinxsoon"
             class="twitter-follow-button"
