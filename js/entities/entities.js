@@ -40,7 +40,7 @@ var BirdEntity = me.Entity.extend({
         }
         if (me.input.isKeyPressed('fly')) {
             me.audio.play('wing');
-            this.gravityForce = 0.50;
+            this.gravityForce = 0.2;
             var currentPos = this.pos.y;
             // stop the previous tweens
             this.flyTween.stop();
@@ -48,7 +48,7 @@ var BirdEntity = me.Entity.extend({
             this.flyTween.start();
             this.renderable.angle = -this.maxAngleRotation;
         } else {
-            this.gravityForce += 0.50;
+            this.gravityForce += 0.2;
             this.pos.y += me.timer.tick * this.gravityForce;
             this.renderable.angle += Number.prototype.degToRad(0.5) * this.gravityForce;
             if (this.renderable.angle > this.maxAngleRotationDown)
