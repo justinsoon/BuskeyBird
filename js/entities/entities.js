@@ -9,8 +9,8 @@ var BirdEntity = me.Entity.extend({
 
         this._super(me.Entity, 'init', [x, y, settings]);
         this.alwaysUpdate = true;
-        this.body.gravity = 1.0;
-        this.gravityForce = 0.50;
+        this.body.gravity = 0.5;
+        this.gravityForce = 0.01;
         this.maxAngleRotation = Number.prototype.degToRad(30);
         this.maxAngleRotationDown = Number.prototype.degToRad(90);
         this.renderable.addAnimation("flying", [0, 1, 2]);
@@ -40,7 +40,7 @@ var BirdEntity = me.Entity.extend({
         }
         if (me.input.isKeyPressed('fly')) {
             me.audio.play('wing');
-            this.gravityForce = 0.02;
+            this.gravityForce = 0.50;
             var currentPos = this.pos.y;
             // stop the previous tweens
             this.flyTween.stop();
@@ -48,7 +48,7 @@ var BirdEntity = me.Entity.extend({
             this.flyTween.start();
             this.renderable.angle = -this.maxAngleRotation;
         } else {
-            this.gravityForce += 0.2;
+            this.gravityForce += 0.50;
             this.pos.y += me.timer.tick * this.gravityForce;
             this.renderable.angle += Number.prototype.degToRad(0.5) * this.gravityForce;
             if (this.renderable.angle > this.maxAngleRotationDown)
