@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title>Buskey Bird</title>
+    <link rel="apple-touch-icon-precomposed" href="data/img/touch-icon-iphone.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="data/img/touch-icon-iphone-retina.png"/>
+    <link rel="shortcut icon" href="data/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css">
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Buskey Bird">
+    <meta charset="UTF-8" />
+    <meta name="description" content="Buskey Bird - A Flappy Bird clone. Final Project for computer math."/>
+    <meta name="keywords" content="buskeybird, buskey, bird, game, html5, melonjs,clone"/>
+    <meta name="robots" content="index, follow">
+    <meta property="og:image" content="https://raw.githubusercontent.com/justinsoon/justinsoon.github.io/master/data/img/bg.png" />
+    <meta property="og:title" content="Buskey Bird - A Flappy Bird clone By Justin Soon"/>
+    <meta property="og:url" content="http://justinsoon.github.io/"/>
+    <meta property="og:site_name" content="Buskey Bird By Justin Soon"/>
+
+    <!-- Twitter Card -->
+    <meta name="twitter:hashtag" content="buskeybird" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@justinxsoon" />
+    <meta name="twitter:creator" content="@justinxsoon" />
+    <meta name="twitter:title" content="Buskey Bird" />
+    <meta name="twitter:description" content="Comp Math Final Project" />
+
+
+    <!-- Humans -->
+    <link rel="author" href="humans.txt" />
+
+    <link rel="stylesheet" type="text/css" href="addtohomescreen.css">
+    <script src="js/addtohomescreen.min.js"></script>
+  </head>
+
+  <body>
+    
+    <div id="fb-root"></div>
+    <script>
+    (function(d, s, id) 
+        {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+          fjs.parentNode.insertBefore(js, fjs);
+        }
+    (document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- Canvas placeholder -->
+    <div id="screen"></div>
+    <!-- Sharing section -->
+    <div id="share">
+        <a
+            data-href="http://justinsoon.github.io/"
+            class="fb-share-button"
+            data-mobile-iframe="true"
+            data-layout="button_count"
+        </a>
+        <a
+            href="https://twitter.com/justinxsoon"
+            class="twitter-follow-button"
+            data-show-count="false">Follow @justinxsoon
+        </a>
+      <script>
+        !function(d,s,id){
+          var js,fjs=d.getElementsByTagName(s)[0],
+              p=/^http:/.test(d.location)?'http':'https';
+          if(!d.getElementById(id)){
+            js=d.createElement(s);
+            js.id=id;
+            js.src=p+'://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js,fjs);
+          }
+        }(document, 'script', 'twitter-wjs');
+      </script>
+    </div>
+
+    <!-- melonJS Library -->
+    <script type="text/javascript" src="js/melonJS-2.1.1-min.js"></script>
+    <script type="text/javascript" src="js/debugPanel.js" ></script>
+    <script type="text/javascript" src="build/buskey-min.js" ></script>
+    <!-- Bootstrap & Mobile optimization tricks -->
+    <script type="text/javascript">
+      window.onReady(function onReady() {
+        game.onload();
+        // Mobile browser hacks
+        if (me.device.isMobile && !navigator.isCocoonJS) {
+          // Prevent the webview from moving on a swipe
+          window.document.addEventListener("touchmove", function (e) {
+            e.preventDefault();
+            window.scroll(0, 0);
+            return false;
+          }, false);
+          // Scroll away mobile GUI
+          (function () {
+            window.scrollTo(0, 1);
+            me.video.onresize(null);
+          }).defer();
+          me.event.subscribe(me.event.WINDOW_ONRESIZE, function (e) {
+            window.scrollTo(0, 1);
+          });
+        }
+      });
+    </script>
+
+  </body>
+</html>
