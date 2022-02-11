@@ -1,8 +1,9 @@
 Buskey Bird
 ===========
 
-A MelonJS made "Flappy Bird" clone.
+This project was done for JCHS's Computer Science in 2015. 
 
-Make sure to fork rep for personal use.
 
-Play online at http://justinsoon.github.io/
+A MelonJS made "Flappy Bird" clone. 
+
+Play online at http://justinsoon.io/
